@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Work Day Scheduler</title>
   </head>
@@ -37,8 +38,197 @@
       </p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
+      <div id="row-9" class="row time-block">
+        <div class="col-2 hour">
+           <p>9:00 a.m.</p>
+        </div>
+          <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
+      <div id="row-10"class="row time-block">
+        <div class="col-2 hour">
+          <p>10:00 a.m.</p>
+        </div>
+        <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
+      <div id="row-11" class="row time-block">
+        <div class="col-2 hour">
+          <p>11:00 a.m.</p>
+        </div>
+        <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
+      <div id="row-12" class="row time-block">
+        <div class="col-2 hour">
+          <p>12:00 p.m.</p>
+        </div>
+        <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
+      <div id="row-1" class="row time-block">
+        <div class="col-2 hour">
+          <p>1:00 p.m.</p>
+        </div>
+        <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
+      <div id="row-2" class="row time-block">
+        <div class="col-2 hour">
+          <p>2:00 p.m.</p>
+        </div>
+        <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
+      <div id="row-3" class="row time-block">
+        <div class="col-2 hour">
+          <p>3:00 p.m.</p>
+        </div>
+        <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
+      <div id="row-4" class="row time-block">
+        <div class="col-2 hour">
+          <p>4:00 p.m.</p>
+        </div>
+        <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
+      <div id="row-5" class="row time-block">
+        <div class="col-2 hour">
+          <p>5:00 p.m.</p>
+        </div>
+        <textarea class="col 8 description"></textarea>
+        <button class="btn btn-primary saveBtn">
+          <span class="oi oi-lock-locked"></span>
+        </button>
+      </div>
     </div>
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+      $(".btn").click(function() {
+      var description = $(this).siblings(".description").val();
+      var rowId = $(this).parent().attr("id");
+      localStorage.setItem(rowId, description);
+      console.log(rowId);
+      console.log(description);
+      });
+
+      updateHourColors = function() {
+        
+        var now = moment().hour();
+
+        $(".time-block").each(function(){
+          var getTime = parseInt($(this).attr("id").split("-")[1]);
+          console.log(typeof(getTime));
+         
+
+          if (getTime < moment()) {
+          $("#time-block").addClass("past");
+          }
+
+          else if (getTime > now) {
+            $(this).removeClass("past");
+            $(this).addClass("future");
+          }
+          
+          // (getTime < now){
+          //   $(this).addClass("past");
+          // }
+
+         
+
+          // else {
+          //   $(this).removeClass("past");
+          //   $(this).removeClass("present");
+          //   $(this).addClass("future");
+          // }
+        
+        });
+      }
+        updateHourColors()
+
+        //setInterval(updateHourColors, 50000)
+
+      $("#row-9 .description").val(localStorage.getItem("row-9"));
+      $("#row-10 .description").val(localStorage.getItem("row-10"));
+      $("#row-11 .description").val(localStorage.getItem("row-11"));
+      $("#row-12 .description").val(localStorage.getItem("row-12"));
+      $("#row-1 .description").val(localStorage.getItem("row-1"));
+      $("#row-2 .description").val(localStorage.getItem("row-2"));
+      $("#row-3 .description").val(localStorage.getItem("row-3"));
+      $("#row-4 .description").val(localStorage.getItem("row-4"));
+      $("#row-5 .description").val(localStorage.getItem("row-5"));
+    });
+ 
+      // updateHourColors = function() {
+        
+      //   var now = moment().hour();
+
+      //   $(".time-block").each(function(){})
+        
+        //if (moment().isAfter(now)) {
+          //$("#time-block").addClass("future");
+
+          //need to know if it's the current, past or future hour
+
+          //how to get the value of the hour from html(row id)
+      // }
+    
+    //   $(taskEl).addClass("past");
+    // 
+    // else if (Math.abs(moment().diff(time, "days")) <=2) 
+    //   $(taskEl).addClass("list-group-item-warning");
+      
+
+  
+
+         
+      //use setInterval to update the colors of the blocks
+
+      //call hour color function once without setInterval
+
+      //updateHourColors() to run code at beginning of page to run colors
+      //setInterval(updateHourColors)
+
+    
+    
+
+    
+    // var timeColors = function() {
+
+    // //convert to moment object at 5:00pm
+    // var time = moment();
+    
+    // //remove any old classes from element
+    // $(taskEl).removeClass("hour");
+
+    // if (moment().isAfter(time)) {
+    //   $(taskEl).addClass("past");
+    // }
+    // else if (Math.abs(moment().diff(time, "days")) <=2) {
+    //   $(taskEl).addClass("list-group-item-warning");
+    // }
+    // };
+  
+  </script>
 
     
   </body>
