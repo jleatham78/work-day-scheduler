@@ -74,7 +74,7 @@
           <span class="oi oi-lock-locked"></span>
         </button>
       </div>
-      <div id="row-1" class="row time-block">
+      <div id="row-13" class="row time-block">
         <div class="col-2 hour">
           <p>1:00 p.m.</p>
         </div>
@@ -83,7 +83,7 @@
           <span class="oi oi-lock-locked"></span>
         </button>
       </div>
-      <div id="row-2" class="row time-block">
+      <div id="row-14" class="row time-block">
         <div class="col-2 hour">
           <p>2:00 p.m.</p>
         </div>
@@ -92,7 +92,7 @@
           <span class="oi oi-lock-locked"></span>
         </button>
       </div>
-      <div id="row-3" class="row time-block">
+      <div id="row-15" class="row time-block">
         <div class="col-2 hour">
           <p>3:00 p.m.</p>
         </div>
@@ -101,7 +101,7 @@
           <span class="oi oi-lock-locked"></span>
         </button>
       </div>
-      <div id="row-4" class="row time-block">
+      <div id="row-16" class="row time-block">
         <div class="col-2 hour">
           <p>4:00 p.m.</p>
         </div>
@@ -110,7 +110,7 @@
           <span class="oi oi-lock-locked"></span>
         </button>
       </div>
-      <div id="row-5" class="row time-block">
+      <div id="row-17" class="row time-block">
         <div class="col-2 hour">
           <p>5:00 p.m.</p>
         </div>
@@ -140,8 +140,8 @@
           console.log(typeof(getTime));
          
 
-          if (getTime < moment()) {
-          $("#time-block").addClass("past");
+          if (getTime < now) {
+          $(this).addClass("past");
           }
 
           else if (getTime > now) {
@@ -149,33 +149,27 @@
             $(this).addClass("future");
           }
           
-          // (getTime < now){
-          //   $(this).addClass("past");
-          // }
-
-         
-
-          // else {
-          //   $(this).removeClass("past");
-          //   $(this).removeClass("present");
-          //   $(this).addClass("future");
-          // }
+          else if (getTime === now) {
+            $(this).removeClass("past");
+            $(this).removeClass("future");
+            $(this).addClass("present");
+          }
         
         });
       }
         updateHourColors()
 
-        //setInterval(updateHourColors, 50000)
+        setInterval(updateHourColors, 60000)
 
       $("#row-9 .description").val(localStorage.getItem("row-9"));
       $("#row-10 .description").val(localStorage.getItem("row-10"));
       $("#row-11 .description").val(localStorage.getItem("row-11"));
       $("#row-12 .description").val(localStorage.getItem("row-12"));
-      $("#row-1 .description").val(localStorage.getItem("row-1"));
-      $("#row-2 .description").val(localStorage.getItem("row-2"));
-      $("#row-3 .description").val(localStorage.getItem("row-3"));
-      $("#row-4 .description").val(localStorage.getItem("row-4"));
-      $("#row-5 .description").val(localStorage.getItem("row-5"));
+      $("#row-13 .description").val(localStorage.getItem("row-13"));
+      $("#row-14. description").val(localStorage.getItem("row-14"));
+      $("#row-15. description").val(localStorage.getItem("row-15"));
+      $("#row-16 .description").val(localStorage.getItem("row-16"));
+      $("#row-17 .description").val(localStorage.getItem("row-17"));
     });
  
       // updateHourColors = function() {
